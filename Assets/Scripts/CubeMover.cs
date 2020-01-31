@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CubeMover : MonoBehaviour
 {
@@ -16,5 +17,11 @@ public class CubeMover : MonoBehaviour
         Vector3 movement = new Vector3(horizontal, vertical);
 
         transform.position += movement * Time.deltaTime * speed;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // reloads the scene
+        SceneManager.LoadScene(0);
     }
 }
